@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
-    return redirect('/books');
+    return 'VERCEL TEST OK';
 });
-
-Route::resource('books', BookController::class)
-    ->except(['show']);
