@@ -1,5 +1,18 @@
 <?php
 
+<?php
+
+// Trik memaksa writable storage di Vercel Serverless
+if (is_dir('/tmp')) {
+    define('LARAVEL_STORAGE_PATH', '/tmp/storage');
+    if (!is_dir('/tmp/storage')) {
+        mkdir('/tmp/storage', 0755, true);
+        mkdir('/tmp/storage/framework', 0755, true);
+        mkdir('/tmp/storage/framework/views', 0755, true);
+        mkdir('/tmp/storage/framework/cache', 0755, true);
+        mkdir('/tmp/storage/framework/sessions', 0755, true);
+    }
+}
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
